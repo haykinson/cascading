@@ -75,7 +75,17 @@ public class SequenceFile extends Scheme
   @Override
   public Tuple source( Object key, Object value )
     {
-    return (Tuple) value;
+	if (value instanceof Tuple)
+	{
+	    return (Tuple) value;
+	}
+	else
+	{
+	    if (value != null)
+		return new Tuple(String.valueOf(value));
+	    else
+		return new Tuple("");
+	}
     }
 
   @Override
