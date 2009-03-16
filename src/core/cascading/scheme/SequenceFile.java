@@ -79,12 +79,17 @@ public class SequenceFile extends Scheme
 	{
 	    return (Tuple) value;
 	}
+	else if (value instanceof Comparable)
+	{
+	    return new Tuple((Comparable) value);
+	}
+	else if (value != null)
+	{
+	    return new Tuple(String.valueOf(value));
+	}
 	else
 	{
-	    if (value != null)
-		return new Tuple(String.valueOf(value));
-	    else
-		return new Tuple("");
+	    return new Tuple("");
 	}
     }
 
