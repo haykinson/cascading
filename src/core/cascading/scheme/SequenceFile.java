@@ -89,7 +89,7 @@ public class SequenceFile extends Scheme
 	}
 	else
 	{
-	    return new Tuple("");
+	    return new Tuple((Comparable)null);
 	}
     }
 
